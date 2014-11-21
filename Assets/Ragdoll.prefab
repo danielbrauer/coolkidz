@@ -2825,8 +2825,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .36926651, y: 1.21859741, z: .722867012}
-  m_Center: {x: 0, y: .609298706, z: -.0273375511}
+  m_Size: {x: .310000002, y: .25, z: .189999998}
+  m_Center: {x: 0, y: 1.07000005, z: -.0273375511}
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -2851,7 +2851,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .0923166275
+  m_Radius: .140000001
   m_Center: {x: 0, y: .0923166275, z: 0}
 --- !u!136 &13600000
 CapsuleCollider:
