@@ -13,6 +13,12 @@ public class DeathRaceUI : MonoBehaviour {
 	[SerializeField] float flashTime = 0.2f;
 	[SerializeField] float flashTime2 = 0.2f;
 	
+	[SerializeField] CarDragRaceControl graham;
+	[SerializeField] CarDragRaceControl tom;
+	
+	[SerializeField] GameObject grahamDone;
+	[SerializeField] GameObject tomDone;
+	
 	public enum ProgressState {
 		Menu,
 		Playing,
@@ -70,26 +76,29 @@ public class DeathRaceUI : MonoBehaviour {
 		startText.SetActive(false);
 		grahamReady.SetActive(false);
 		tomReady.SetActive(false);
+		
+		graham.enabled = tom.enabled = true;
+		
 		StartCoroutine(PlayingRoutine());
 	}
 	
 	protected IEnumerator PlayingRoutine() {
 		CurrentState = ProgressState.Playing;
 		
+		var finishTime = 0f;
+		
 		while (true) {
+			if (grahamDone.activeSelf || tomDone.activeSelf) {
+				finishTime = Time.time;
+				break;
+			}
 			yield return null;
 		}
 		
-		StartCoroutine(FinishedRoutine());
-	}
-	
-	protected IEnumerator FinishedRoutine() {
-		CurrentState = ProgressState.Finished;
-		
-		while (true) {
+		while (Time.time < finishTime + 10f) {
 			yield return null;
 		}
 		
-		StartCoroutine(MenuRoutine());
+		Application.LoadLevel(0);
 	}
 }
