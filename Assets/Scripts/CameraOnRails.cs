@@ -17,17 +17,17 @@ public class CameraOnRails : MonoBehaviour {
 	}
 	
 	protected void LateUpdate() {
-		var targetAverage = (target1.position + target2.position)*0.5f;
-		var targetVelocityAverage = (target1.velocity + target2.velocity)*0.5f;
+		var leadingTarget = (target1.position.x < target2.position.x) ? target1 : target2;
+		var targetPosition = leadingTarget.position;
 		
-		targetAverage += targetVelocityAverage*smoothTime*lookAhead;
-		targetAverage.z = transform.position.z;
-		targetAverage.y += yOffset;
-		targetAverage.y = Mathf.Max(targetAverage.y, minY);
+		targetPosition += leadingTarget.velocity*smoothTime*lookAhead;
+		targetPosition.z = transform.position.z;
+		targetPosition.y += yOffset;
+		targetPosition.y = Mathf.Max(targetPosition.y, minY);
 		
 		transform.position = Vector3.SmoothDamp(
 			transform.position,
-			targetAverage,
+			targetPosition,
 			ref velocity,
 			smoothTime,
 			maxSpeed
