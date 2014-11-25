@@ -5,6 +5,7 @@ public class Bail : MonoBehaviour {
 	
 	[SerializeField] private string buttonName;
 	[SerializeField] private GameObject ragdoll;
+	[SerializeField] private float randomVelocity = 10f;
 	
 	protected void Update() {
 		if (!ragdoll.activeSelf && CrossPlatformInputManager.GetButton(buttonName)) {
@@ -20,7 +21,7 @@ public class Bail : MonoBehaviour {
 				delegate(Transform x) {
 					var rigidbody = x.GetComponent<Rigidbody>();
 					if (rigidbody) {
-						rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+						rigidbody.AddForce(velocity + Random.insideUnitSphere*randomVelocity, ForceMode.VelocityChange);
 					}
 				}
 			);

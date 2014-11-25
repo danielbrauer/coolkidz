@@ -1566,8 +1566,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 287715762}
-  m_LocalRotation: {x: .0787497237, y: .92108655, z: .279188603, w: -.259715021}
-  m_LocalPosition: {x: 60.2767372, y: -.810081482, z: 42.9762459}
+  m_LocalRotation: {x: -.21759817, y: .625120461, z: .187458128, w: .725765049}
+  m_LocalPosition: {x: 11.2788944, y: 3.37859344, z: 31.003088}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3437,6 +3437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonName: Tom Bail
   ragdoll: {fileID: 367728742}
+  randomVelocity: 10
 --- !u!1 &502863679
 GameObject:
   m_ObjectHideFlags: 0
@@ -9481,6 +9482,10 @@ Prefab:
       propertyPath: m_Name
       value: Car (Graham)
       objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 87a425671f45f4407bb4c9f859852cbf, type: 2}
+      propertyPath: randomForce
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87a425671f45f4407bb4c9f859852cbf, type: 2}
   m_RootGameObject: {fileID: 1818706577}
@@ -12141,6 +12146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonName: Graham Bail
   ragdoll: {fileID: 144736544}
+  randomVelocity: 10
 --- !u!1 &1825191072
 GameObject:
   m_ObjectHideFlags: 0
